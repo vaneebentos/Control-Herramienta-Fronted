@@ -1,0 +1,67 @@
+<div class="col-md-6 offset-md-3">
+    <h3 class="text-center">Registro de empleado</h3>
+    <form (ngSubmit)="onSubmit ()">
+        <div class="form-group">
+        <label>Nombre :</label>
+        <input type="text" class="form-control" id="nombre" [(ngModel)]= "empleado.nombre" name='nombre' required 
+        minlength ="3" maxlength="60" placeholder="Ingrese su nombre" #nombre="ngModel">
+       
+        <div class="alert alert-danger" *ngIf= "nombre.invalid && (nombre.dirty || nombre.touched )">
+            <div *ngIf= "nombre.errors ['required']">
+                Ingrese su nombre
+            </div>
+
+            <div *ngIf= "nombre.errors ['minlength']">
+                El nombre debe tener como minimo 3 caracteres 
+            </div>
+            <div *ngIf= "nombre.errors ['maxlength']">
+                El nombre debe tener como maximo 60
+            </div>
+
+            
+        </div>
+           </div>
+
+
+        <div class="form-group">
+            <label>Apellido:</label>
+            <input type="text" class="form-control" id="apellido" [(ngModel)]= "empleado.apellido" name='apellido' required  minlength="3"maxlength="60" placeholder="Ingrese su apellido" #apellido="ngModel">
+            
+            <div class="alert alert-danger" *ngIf= "apellido.invalid && (apellido.dirty || apellido.touched )">
+                <div *ngIf= "apellido.errors ['required']">
+                    Ingrese su apellido
+                </div>
+    
+                <div *ngIf= "apellido.errors ['minlength']">
+                    El apellido debe tener como minimo 3 caracteres 
+                </div>
+                <div *ngIf= "apellido.errors ['maxlength']">
+                    El apellido debe tener como maximo 60
+                </div>
+    
+                
+            </div>
+               </div>
+
+
+
+            <div class="form-group">
+                <label>Area :</label>
+                <input type="text" class="form-control" id="area" [(ngModel)]= "empleado.area" name='area'required  minlength="3"maxlength="1000" placeholder="Ingrese su area" #area="ngModel">
+                <div *ngIf= "area.errors['required']">
+                    Ingrese su area
+                </div>
+    
+                <div *ngIf= "area.errors['minlength']">
+                    El area debe tener como minimo 3 caracteres 
+                </div>
+                <div *ngIf= "area.errors['maxlength']">
+                    El area debe tener como maximo 1000
+                </div>
+                 </div>
+
+                <button class="btn btn-success" >Guardar</button>
+               
+            </form>          
+       
+</div>

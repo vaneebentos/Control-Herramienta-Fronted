@@ -1,0 +1,67 @@
+<div class="col-md-6 offset-md-3">
+    <h3 class="text-center">Registro de herramienta</h3>
+    <form (ngSubmit)="onSubmit ()">
+        <div class="form-group">
+        <label>Nombre :</label>
+        <input type="text" class="form-control" id="nombreHerramienta" [(ngModel)]= "herramienta.nombreHerramienta" name='nombre' required 
+        minlength ="3" maxlength="60" placeholder="Ingrese la herramienta" #nombreHerramienta="ngModel">
+       
+        <div class="alert alert-danger" *ngIf= "nombreHerramienta.invalid && (nombreHerramienta.dirty || nombreHerramienta.touched )">
+            <div *ngIf= "nombreHerramienta.errors ['required']">
+                Registre la herramienta
+            </div>
+
+            <div *ngIf= "nombreHerramienta.errors ['minlength']">
+                El nombre debe tener como minimo 3 caracteres 
+            </div>
+            <div *ngIf= "nombreHerramienta.errors ['maxlength']">
+                El nombre debe tener como maximo 600
+            </div>
+
+            
+        </div>
+           </div>
+
+
+        <div class="form-group">
+            <label>Tipo</label>
+            <input type="text" class="form-control" id="tipo" [(ngModel)]= "herramienta.tipo" name='tipo' required  minlength="3"maxlength="600" placeholder="Caracteristica de la herramienta" #tipo="ngModel">
+            
+            <div class="alert alert-danger" *ngIf= "tipo.invalid && (tipo.dirty || tipo.touched )">
+                <div *ngIf= "tipo.errors ['required']">
+                    Ingrese el tipo de herramienta
+                </div>
+    
+                <div *ngIf= "tipo.errors ['minlength']">
+                    El tipo debe tener como minimo 3 caracteres 
+                </div>
+                <div *ngIf= "tipo.errors ['maxlength']">
+                    El tipo debe tener como maximo 600
+                </div>
+    
+                
+            </div>
+               </div>
+
+
+
+            <div class="form-group">
+                <label>Cantidad :</label>
+                <input type="text" class="form-control" id="area" [(ngModel)]= "herramienta.cantidad" name='cantidad'required  minlength="3"maxlength="1000" placeholder="Ingrese la cantidad" #cantidad="ngModel">
+                <div *ngIf= "cantidad.errors['required']">
+                    Ingrese la cantidad
+                </div>
+    
+                <div *ngIf= "cantidad.errors['minlength']">
+                    El cantidad debe tener como minimo 1 caracteres 
+                </div>
+                <div *ngIf= "cantidad.errors['maxlength']">
+                    El cantidad debe tener como maximo 1000
+                </div>
+                 </div>
+
+                <button class="btn btn-success" >Guardar</button>
+               
+            </form>          
+       
+</div>
