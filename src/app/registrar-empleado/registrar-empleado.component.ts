@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Empleado } from '../empleado';
-import { EmpeladoService } from '../empelado.service';
+import { EmpleadoService } from '../empleado.service';
 import { Route, Router } from '@angular/router';
 import { catchError, tap } from 'rxjs/operators';
 
@@ -14,7 +14,7 @@ export class RegistrarEmpleadoComponent implements OnInit{
   empleado : Empleado = new Empleado();
   
 
-  constructor (private empleadoServicio:EmpeladoService,private router:Router){ }
+  constructor (private empleadoServicio:EmpleadoService,private router:Router){ }
 
 
 

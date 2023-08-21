@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Empleado } from '../empleado';
 import { ActivatedRoute } from '@angular/router';
-import { EmpeladoService } from '../empelado.service';
+import {EmpleadoService } from '../empleado.service';
 import swal from 'sweetalert2';
 
 @Component({
@@ -14,7 +14,7 @@ export class EmpleadoDetallesComponent implements OnInit{
   id:number;
   empleado:Empleado;
 
-  constructor(private route:ActivatedRoute,private empleadoServico:EmpeladoService){
+  constructor(private route:ActivatedRoute,private empleadoServico:EmpleadoService){
 
   }
   ngOnInit(): void {

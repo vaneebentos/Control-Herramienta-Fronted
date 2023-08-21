@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Empleado } from '../empleado';
-import { EmpeladoService } from '../empelado.service';
+import { EmpleadoService } from '../empleado.service';
 import { Router } from '@angular/router';
 import swal from 'sweetalert2';
 
@@ -15,7 +15,7 @@ export class ListaEmpleadosComponent  implements OnInit{
   empleados:Empleado [];
  
 
-  constructor(private empleadoServicio:EmpeladoService, private router:Router){}
+  constructor(private empleadoServicio:EmpleadoService, private router:Router){}
 
   ngOnInit(): void {
     this.obtenerEmpleados (); // es un metodo y se ejecuta solo una vez por en ngOnInit
