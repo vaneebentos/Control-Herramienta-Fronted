@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { EmpeladoService } from '../empelado.service';
-import { Router } from '@angular/router';
+
+import { ActivatedRoute, Router } from '@angular/router';
 import { Empleado } from '../empleado';
+import { catchError, tap } from 'rxjs';
+import { EmpleadoService } from '../empleado.service';
 
 @Component({
   selector: 'app-actualizar-empleado',
@@ -9,31 +11,48 @@ import { Empleado } from '../empleado';
   styleUrls: ['./actualizar-empleado.component.css']
 })
 export class ActualizarEmpleadoComponent implements OnInit {
-  empleado : Empleado = new Empleado();
-  constructor (private empleadoServicio:EmpeladoService,private router:Router){ }
+
+  empleado: Empleado = new Empleado();
+  empleadoId: number;
+
+  constructor(
+    private empleadoService: EmpleadoService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
-   
+    this.route.params.subscribe(params => {
+      this.empleadoId = params['id'];
+      this.obtenerEmpleado();
+    });
   }
 
-
-  // metodo nuevo para actualizar
-  actualizarEmpleado(){
-    this.empleadoServicio.registrarEmpleado(this.empleado).subscribe(dato =>{
-      console.log(dato);
-      this.irALaListaDeEmpleado();
-    },error =>{ console.log(error); //
+  obtenerEmpleado() {
+    this.empleadoService.obtenerEmpleadoPorId(this.empleadoId).subscribe(
+      empleado => {
+        this.empleado = empleado;
+    })
  }
-  );
-}
 
-  irALaListaDeEmpleado(){
+  actualizarEmpleado() {
+    this.empleadoService.actualizarEmpleadoPorId(this.empleadoId, this.empleado).pipe(
+      tap(dato => {
+        console.log("Datos actualizados del empleado:", this.empleado);
+        this.irALaListaDeEmpleados();
+      }),
+      catchError(error => {
+        console.error('Ha ocurrido un error:', error);
+        throw error;
+      })
+    ).subscribe();
+  }
+
+  irALaListaDeEmpleados() {
     this.router.navigate(['/empleados']);
   }
 
-
-  onSubmit (){
+  onSubmit() {
     this.actualizarEmpleado();
+   }
   }
-
-}
