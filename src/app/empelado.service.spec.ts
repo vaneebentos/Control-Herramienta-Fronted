@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { EmpeladoService } from './empelado.service';
+import { EmpeladoService } from './empleado.service';
 
 describe('EmpeladoService', () => {
   let service: EmpeladoService;

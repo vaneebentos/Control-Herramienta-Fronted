@@ -11,6 +11,7 @@ import { ActualizarEmpleadoComponent } from './actualizar-empleado/actualizar-em
 import { EmpleadoDetallesComponent } from './empleado-detalles/empleado-detalles.component';
 import { RegistroHerramientasComponent } from './registro-herramientas/registro-herramientas.component';
 import { ListaHerramientasComponent } from './lista-herramientas/lista-herramientas.component';
+import { HerramientaDetallesComponent } from './herramienta-detalles/herramienta-detalles.component';
 
 
 
@@ -22,7 +23,8 @@ import { ListaHerramientasComponent } from './lista-herramientas/lista-herramien
     ActualizarEmpleadoComponent,
     EmpleadoDetallesComponent,
     RegistroHerramientasComponent,
-    ListaHerramientasComponent
+    ListaHerramientasComponent,
+    HerramientaDetallesComponent
   ],
   imports: [
     BrowserModule,

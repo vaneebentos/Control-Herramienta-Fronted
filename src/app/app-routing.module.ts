@@ -5,6 +5,7 @@ import { RegistrarEmpleadoComponent } from './registrar-empleado/registrar-emple
 import { ActualizarEmpleadoComponent } from './actualizar-empleado/actualizar-empleado.component';
 import { EmpleadoDetallesComponent } from './empleado-detalles/empleado-detalles.component';
 import { ListaHerramientasComponent } from './lista-herramientas/lista-herramientas.component';
+import { RegistroHerramientasComponent } from './registro-herramientas/registro-herramientas.component';
 
 const routes: Routes = [
   {path:'empleados', component: ListaEmpleadosComponent},
@@ -12,7 +13,8 @@ const routes: Routes = [
   {path:'registrar-empleado', component: RegistrarEmpleadoComponent},
   {path:'actualizar-empleado/:id', component: ActualizarEmpleadoComponent},
   {path:'empleado-detalles/:id', component: EmpleadoDetallesComponent},
-  {path:'herramienta', component: ListaHerramientasComponent}
+  {path:'lista-herramientas', component: ListaHerramientasComponent},
+  {path: 'registro-herramientas', component:RegistroHerramientasComponent}
 ];
 
 @NgModule({
