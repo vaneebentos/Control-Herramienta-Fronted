@@ -12,6 +12,7 @@ import { catchError, tap } from 'rxjs';
 export class RegistroHerramientasComponent implements OnInit {
 
   herramienta : Herramienta = new Herramienta;
+
   constructor (private herramientaService: HerramientaService,private router:Router){ }
 
   ngOnInit(): void { }
@@ -20,7 +21,7 @@ export class RegistroHerramientasComponent implements OnInit {
     this.herramientaService.registrarHerramienta(this.herramienta).pipe(
       tap(dato => {
         console.log("Operacion Exitosa",dato) ;
-        this.irALaListaDeHerramienta();
+        this.irALaListaDeHerramientas();
       }),
       catchError(error => {
         console.error('Ha ocurrido un error:', error);
@@ -29,8 +30,8 @@ export class RegistroHerramientasComponent implements OnInit {
     ).subscribe();
   }
 
-  irALaListaDeHerramienta(){
-    this.router.navigate(['/herramienta']);
+  irALaListaDeHerramientas(){
+    this.router.navigate(['/lista-herramientas']);
   }
 
   onSubmit(){
