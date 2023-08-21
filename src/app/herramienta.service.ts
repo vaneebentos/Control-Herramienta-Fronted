@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class HerramientaService {
 
-  private baseURL ="http://localhost:8080/api/v1/herramientas";
+  private baseURL ="http://localhost:8080/api/v2/herramientas";
 
   constructor( private httpClient: HttpClient) { }
 
@@ -30,8 +30,8 @@ export class HerramientaService {
     }
   
     actualizarHerramientaPorId(id: number, herramienta: Herramienta): Observable<Herramienta> {
-      return this.httpClient.put<Herramienta>(`${this.baseURL}/${id}`, herramienta);
-    }
+      return this.httpClient.put<Herramienta>(`${this.baseURL}/${id}`,herramienta);
+    }
     
      eliminarHerramienta(id:number): Observable<Object>{
       return this.httpClient.delete(`${this.baseURL}/${id}`);
