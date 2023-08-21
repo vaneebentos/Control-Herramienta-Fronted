@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Herramienta } from '../herramienta';
 import { HerramientaService } from '../herramienta.service';
 import { Router } from '@angular/router';
@@ -9,7 +9,7 @@ import swal from 'sweetalert2';
   templateUrl: './lista-herramientas.component.html',
   styleUrls: ['./lista-herramientas.component.css']
 })
-export class ListaHerramientasComponent {
+export class ListaHerramientasComponent implements OnInit {
   herramientas:Herramienta [];
  
 
@@ -20,7 +20,7 @@ export class ListaHerramientasComponent {
 
 }
   actualizarHerramienta(id:number){
-    this.router.navigate(['actualizar-empleado',id]);
+    this.router.navigate(['actualizar-herramienta',id]);
   }
 
   eliminarHerramienta(id:number){
